@@ -126,18 +126,6 @@ if [ -n "$log_PATH" ]; then
         echo "Error: Cannot write to log path $log_PATH" >&2  # Ошибка записи в файл лога
         exit 1
     fi
-else
-    default_log_file="logi.log"  # Имя файла по умолчанию для лога
-    {
-        case $action in
-            users) list_users ;;  # Вызов функции для вывода пользователей
-            processes) list_processes ;;  # Вызов функции для вывода процессов
-            help) print_help ;;  # Вызов функции справки
-            *)
-                exit 1  # Неверное действие, выход с ошибкой
-                ;;
-        esac
-    } >> "$default_log_file"  # Перенаправление вывода в файл по умолчанию лога
 fi
 
 # Если не указаны флаги -l или -e, выводим результат в терминал
